@@ -65,78 +65,95 @@
               </div>
             </div>
             <!--/ form-group -->
-            <style>
-              .eh-res {
-                background: lightgray;
-                color: white;
-                border: solid 1px black;
-              }
 
-              .eh-res .row,
-              .eh-res .col {
-                border: solid 1px rebeccapurple;
-              }
+          </form>
+          <!--/ form-->
 
-              .eh-res .row {
-                background: blue;
-              }
 
-              .eh-res [class*="col"] {
-                border: solid 1px red;
-                min-height: 3rem;
-                background: orange;
-              }
+          <style>
+            .eh-res {
+              background: lightgray;
+              color: white;
+              border: solid 1px black;
+            }
 
-              .rounded-start {
-                border-radius: 30px 0 0 30px;
-              }
-            </style>
+            .eh-res .row,
+            .eh-res .col {
+              border: solid 1px rebeccapurple;
+            }
 
-            <div class="container eh-res">
+            .eh-res .row {
+              background: aliceblue;
+            }
 
-              <div class="row">
-                <h4>Main Row</h4>
-                <div class="col col-3">Col 1
-                  Content will go here
+            .eh-res [class*="col"] {
+              border: solid 1px red;
+              min-height: 3rem;
+              background: orange;
+            }
+
+
+            .eh-res.eh-demo>.row>.col:first-of-type {
+              background: green !important;
+              border-radius: 30px 0 0 30px;
+            }
+
+            .eh-res.eh-demo>.row>.col>.row:first-of-type>.col {
+              border-radius: 0 30px 0 0;
+            }
+
+            .eh-res.eh-demo>.row>.col>.row:nth-of-type(2)>.col {
+              border-radius: 0 0 30px 0;
+            }            
+          </style>
+
+          <div class="container eh-res eh-demo">
+
+            <div class="row">
+
+              <div class="col col-3">Col 1
+                Content will go here
+              </div>
+
+              <div class="col col-9">
+                <div class="row">
+                  <div class="col">Inner Column content</div>
                 </div>
-                <div class="col col-9">Col 2
-                  <div class="row">
-                    <div>Rt row top</div>
-                    <div class="col">Inner Column content</div>
-                  </div>
-                  <div class="row">
-                    <div>Rt row top</div>
-                    <div class="col">Inner Column content</div>
-                  </div>
-
+                <div class="row">
+                  <div class="col">Inner Column content</div>
                 </div>
               </div>
 
             </div>
-            .row
-            .col-xs-3
-            .row
-            .col-xs-12
-            .row
-            .col-xs-12
-            .col-xs-9
 
-            <div class="container eh-res">
-              <div class="row">
-                <div class="col-6">
-                  <div class="row">
-                    <div class="col-3">3 columns wide</div>
-                    <div class="col-9">9 columns wide</div>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="row">
-                    <div class="col-9">9 columns wide</div>
-                    <div class="col-3">3 columns wide</div>
-                  </div>
-                </div>
+          </div>
+
+
+          <hr>
+
+          <div class="container eh-res">
+
+            <div class="row">
+              <h4>Main Row</h4>
+              <div class="col col-3">Col 1
+                Content will go here
               </div>
-            </div </form>
+              <div class="col col-9">Col 2
+                <div class="row">
+                  <div>Rt row top</div>
+                  <div class="col">Inner Column content</div>
+                </div>
+                <div class="row">
+                  <div>Rt row top</div>
+                  <div class="col">Inner Column content</div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+
 
         </div>
       </div>
