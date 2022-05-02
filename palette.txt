@@ -1,0 +1,24 @@
+/* Coolors Exported Palette - https://coolors.co/eeeeee-595959-999999-d2d2d2 */
+
+/* CSV */
+EEEEEE,595959,999999,D2D2D2
+
+/* With # */
+#EEEEEE, #595959, #999999, #D2D2D2
+
+/* Array */
+["EEEEEE","595959","999999","D2D2D2"]
+
+/* Object */
+{"Cultured":"EEEEEE","Davys Grey":"595959","Spanish Gray":"999999","Light Gray":"D2D2D2"}
+
+/* Extended Array */
+[{"name":"Cultured","hex":"EEEEEE","rgb":[238,238,238],"cmyk":[0,0,0,7],"hsb":[0,0,93],"hsl":[0,0,93],"lab":[94,0,0]},{"name":"Davys Grey","hex":"595959","rgb":[89,89,89],"cmyk":[0,0,0,65],"hsb":[0,0,35],"hsl":[0,0,35],"lab":[38,0,0]},{"name":"Spanish Gray","hex":"999999","rgb":[153,153,153],"cmyk":[0,0,0,40],"hsb":[0,0,60],"hsl":[0,0,60],"lab":[63,0,0]},{"name":"Light Gray","hex":"D2D2D2","rgb":[210,210,210],"cmyk":[0,0,0,18],"hsb":[0,0,82],"hsl":[0,0,82],"lab":[84,0,0]}]
+
+/* XML */
+<palette>
+  <color name="Cultured" hex="EEEEEE" r="238" g="238" b="238" />
+  <color name="Davys Grey" hex="595959" r="89" g="89" b="89" />
+  <color name="Spanish Gray" hex="999999" r="153" g="153" b="153" />
+  <color name="Light Gray" hex="D2D2D2" r="210" g="210" b="210" />
+</palette>
