@@ -20,6 +20,10 @@ textarea.form-control:focus {
   background: var(--lt-manila);
 }
 
+#loading, #results {
+  display: none;
+}
+
 #results {
   /* background: greenyellow; */
 }
