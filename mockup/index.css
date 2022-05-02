@@ -20,7 +20,7 @@ textarea.form-control:focus {
   background: var(--lt-manila);
 }
 
-#loading, #results {
+#loading, /*#results*/ {
   display: none;
 }
 
