@@ -20,34 +20,32 @@ Date Created: 05/02/22
               background: var(--lt-manila);
             }
 
-            .eh-res {
+            .result-item {
               /* background: lightgray; */
               color: white;
               /* border: solid 1px black; */
               padding: 12px;
             }
 
-            .eh-res .row,
-            .eh-res .col {
+            .result-item .row,
+            .result-item .col {
               text-align: left;
             }
 
-            .eh-res .row {}
-
-            .eh-res [class*="col"]:first-of-type {
+            .result-item [class*="col"]:first-of-type {
               min-height: 3rem;
               /* background: orange; */
             }
 
 
-            .eh-res.eh-demo>.row>.col:first-of-type {
+            .result-item>.row>.col:first-of-type {
               border-radius: var(--rad) 0 0 var(--rad);
               background: var(--spanishGray);
               padding-top: 1rem;
               /* min-width: 140px; */
             }
 
-            .eh-res.eh-demo>.row>.col>.row:first-of-type>.col {
+            .result-item>.row>.col>.row:first-of-type>.col {
               border-radius: 0 var(--rad) 0 0;
               background: var(--davysGrey);
               display: flex;
@@ -56,7 +54,7 @@ Date Created: 05/02/22
               color: var(--brightPumpkin);
             }
 
-            .eh-res.eh-demo>.row>.col>.row:nth-of-type(2)>.col {
+            .result-item>.row>.col>.row:nth-of-type(2)>.col {
               border-radius: 0 0 var(--rad) 0;
               color: var(--davysGrey);
               padding-top: 1rem;
