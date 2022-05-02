@@ -43,28 +43,100 @@
 
             <div class="form-group d-grid gap-2 mb-3">
               <input type="submit" value="Submit Note" class="btn btn-dark">
-            </div><!--/ form-group -->
+            </div>
+            <!--/ form-group -->
 
             <!-- LOADER HERE -->
 
             <!-- RESULTS -->
             <h1 class="heading display-5 pb-3 fw-bold mt-5">Results</h1>
 
-            <h2 class="heading display-7 pb3 text-end mb-3 me-5 text-secondary">Testing</h2>
+            <h2 class="heading display-7 pb3 text-end mb-3 me-5 text-secondary">
+              Thursday | <strong>January 4, 2022</strong>
+            </h2>
 
             <div class="form-group mb-3">
               <div class="input-group">
                 <div class="input-group-text text-start">
                   Date: 2022-01-03<br>
                   Time: 12:04 PM (CST)
-              </div>
+                </div>
                 <input type="text" class="form-control rounded-start results">
               </div>
             </div>
-            <!--/ form-group -->            
+            <!--/ form-group -->
+            <style>
+              .eh-res {
+                background: lightgray;
+                color: white;
+                border: solid 1px black;
+              }
 
+              .eh-res .row,
+              .eh-res .col {
+                border: solid 1px rebeccapurple;
+              }
 
-          </form>
+              .eh-res .row {
+                background: blue;
+              }
+
+              .eh-res [class*="col"] {
+                border: solid 1px red;
+                min-height: 3rem;
+                background: orange;
+              }
+
+              .rounded-start {
+                border-radius: 30px 0 0 30px;
+              }
+            </style>
+
+            <div class="container eh-res">
+
+              <div class="row">
+                <h4>Main Row</h4>
+                <div class="col col-3">Col 1
+                  Content will go here
+                </div>
+                <div class="col col-9">Col 2
+                  <div class="row">
+                    <div>Rt row top</div>
+                    <div class="col">Inner Column content</div>
+                  </div>
+                  <div class="row">
+                    <div>Rt row top</div>
+                    <div class="col">Inner Column content</div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+            .row
+            .col-xs-3
+            .row
+            .col-xs-12
+            .row
+            .col-xs-12
+            .col-xs-9
+
+            <div class="container eh-res">
+              <div class="row">
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-3">3 columns wide</div>
+                    <div class="col-9">9 columns wide</div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-9">9 columns wide</div>
+                    <div class="col-3">3 columns wide</div>
+                  </div>
+                </div>
+              </div>
+            </div </form>
 
         </div>
       </div>
