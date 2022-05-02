@@ -71,56 +71,96 @@
 
 
           <style>
+            :root {
+              --cultured: #EEEEEE;
+              --davysGrey: #595959;
+              --spanishGray: #999999;
+              --lightGray: #D2D2D2;
+              --brightPumpkin: #ff9901;
+              --rad: .4rem;
+            }
+
             .eh-res {
-              background: lightgray;
+              /* background: lightgray; */
               color: white;
-              border: solid 1px black;
+              /* border: solid 1px black; */
+              padding: 12px;
             }
 
             .eh-res .row,
             .eh-res .col {
-              border: solid 1px rebeccapurple;
+              text-align: left;
             }
 
-            .eh-res .row {
-              background: aliceblue;
-            }
+            .eh-res .row {}
 
-            .eh-res [class*="col"] {
-              border: solid 1px red;
+            .eh-res [class*="col"]:first-of-type {
               min-height: 3rem;
-              background: orange;
+              /* background: orange; */
             }
 
 
             .eh-res.eh-demo>.row>.col:first-of-type {
-              background: green !important;
-              border-radius: 30px 0 0 30px;
+              border-radius: var(--rad) 0 0 var(--rad);
+              background: var(--spanishGray);
+              padding-top: 1rem;
+              /* min-width: 140px; */
             }
 
             .eh-res.eh-demo>.row>.col>.row:first-of-type>.col {
-              border-radius: 0 30px 0 0;
+              border-radius: 0 var(--rad) 0 0;
+              background: var(--davysGrey);
+              display: flex;
+              align-items: center;
+              font-weight:700;
+              color: var(--brightPumpkin);
             }
 
             .eh-res.eh-demo>.row>.col>.row:nth-of-type(2)>.col {
-              border-radius: 0 0 30px 0;
-            }            
+              border-radius: 0 0 var(--rad) 0;
+              color: var(--davysGrey);
+              padding-top: 1rem;
+              border: var(--spanishGray) solid;
+              border-width: 0 1px 1px 0;
+            }
           </style>
 
           <div class="container eh-res eh-demo">
 
-            <div class="row">
+            <div class="row ">
 
-              <div class="col col-3">Col 1
-                Content will go here
+              <div class="col col-3">
+                Date: 2022-01-03<br>
+                Time: 12:04 PM (CST)                
               </div>
 
               <div class="col col-9">
                 <div class="row">
-                  <div class="col">Inner Column content</div>
+                  <div class="col">
+                    <span>Subject Name Goes Here</span>
+                  </div>
                 </div>
                 <div class="row">
-                  <div class="col">Inner Column content</div>
+                  <div class="col">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia leo quis nibh luctus
+                      feugiat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                      egestas. Sed gravida augue quis tortor pellentesque pharetra. Integer consequat mi nulla, sit amet
+                      auctor sem pharetra a. Mauris vehicula volutpat mauris, non faucibus urna tempor congue. Quisque
+                      semper semper purus, in tincidunt elit condimentum sed. Vivamus nec lacinia sem. Donec et egestas
+                      dui. Nullam volutpat ornare metus viverra venenatis. Morbi non diam vehicula, consequat felis non,
+                      dignissim lorem. Maecenas eget enim a nibh aliquet volutpat. Aliquam et ligula urna. Integer ut
+                      auctor nibh, a elementum justo. Nulla facilisi. Sed ipsum mauris, lacinia non velit sed, pretium
+                      facilisis eros. Suspendisse potenti.</p>
+                    <p>Donec mattis et augue ac malesuada. Praesent finibus cursus ipsum, at aliquam ligula aliquet a.
+                      Vestibulum velit nulla, ullamcorper eget ligula at, tempus consectetur justo. Ut in lorem
+                      sagittis, mollis odio sed, efficitur mi. Fusce laoreet efficitur porta. Lorem ipsum dolor sit
+                      amet, consectetur adipiscing elit. Curabitur id accumsan augue. Morbi rutrum in nulla vestibulum
+                      maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                    <p>Quisque lobortis, eros sed iaculis dapibus, diam metus eleifend ipsum, sodales aliquet leo risus
+                      ac neque. Sed dolor felis, faucibus a pharetra ac, aliquet at massa. Curabitur rutrum libero
+                      euismod ex finibus, in ultricies urna luctus. Mauris in risus quis felis vulputate porttitor non
+                      ac metus. Maecenas in enim quam. </p>
+                  </div>
                 </div>
               </div>
 
@@ -128,30 +168,6 @@
 
           </div>
 
-
-          <hr>
-
-          <div class="container eh-res">
-
-            <div class="row">
-              <h4>Main Row</h4>
-              <div class="col col-3">Col 1
-                Content will go here
-              </div>
-              <div class="col col-9">Col 2
-                <div class="row">
-                  <div>Rt row top</div>
-                  <div class="col">Inner Column content</div>
-                </div>
-                <div class="row">
-                  <div>Rt row top</div>
-                  <div class="col">Inner Column content</div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
 
 
 
