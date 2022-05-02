@@ -1,8 +1,13 @@
 // app.js
 
 // Define Elements
-const el_results = document.getElementById('results')
-const el_entryForm = document.getElementById('entry-form')
+const results = document.getElementById('results')
+const entryForm = document.getElementById('entry-form')
+const loader = document.getElementById('loading')
+
+// Get elements
+const card = document.querySelector('.card')
+const heading = document.querySelector('.heading')
 
 // UI Input Variables
 const UI_subject = document.getElementById('subject')
@@ -10,34 +15,44 @@ const UI_details = document.getElementById('details')
 
 
 // Listen for submit
-el_entryForm.addEventListener('submit', showResults)
+entryForm.addEventListener('submit', function (e) {
+  // Hide results
+  results.style.display = 'none'
+
+  // Show loader
+  loader.style.display = 'none'
+
+  // Show results after 2 seconds
+  showResults()
+
+
+  e.preventDefault()
+
+})
 
 
 
 // Show Results
-function showResults(e) {
+function showResults() {
   console.log('Results will show ...')
 
   // Validate
   if (UI_subject.value === "" || UI_details.value === "") {
-    let error_text = 'Both fields must have a value' 
+    let error_text = 'Both fields must have a value'
     console.log(error_text)
     showError(error_text)
   } else {
-    processEntry()
+    
+  // Show loader
+  loader.style.display = 'block'
+    setTimeout(processEntry, 2000)
   }
-
-  e.preventDefault()
 }
 
 // Show Error
 function showError(error) {
   // Create div
   const errorDiv = document.createElement('div')
-  
-  // Get elements
-  const card = document.querySelector('.card')
-  const heading = document.querySelector('.heading')
 
   // Add Class
   errorDiv.className = 'alert alert-danger'
@@ -59,6 +74,13 @@ function clearError() {
 
 // Process Entry
 function processEntry() {
+
+  // Hide loader
+  loader.style.display = 'none'
+  // Show results
+  results.style.display = 'block'
+
   console.log(`Subject: ${subject.value}`)
   console.log(`Details: ${details.value}`)
+
 }
