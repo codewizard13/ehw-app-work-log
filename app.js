@@ -14,6 +14,7 @@ const input_details = document.getElementById('details')
 // Results Elements
 const loader = document.getElementById('loading')
 const results = document.getElementById('results')
+
 const dateLong = document.querySelector('.date-long')
 const dateDOWLong = document.querySelector('.date-dow-long')
 
@@ -50,11 +51,12 @@ function getDateTime(dt_fmt='US-12') {
     timeZoneName: 'short',
   }).slice(4)
 
+  var date_long = `${mo_long} ${dy2}, ${cur_dt.getFullYear()}`;
   var date_full = `${dow_name}, ${mo_long} ${dy2}, ${cur_dt.getFullYear()}`;
 
   // Date Object
   date_obj = {
-    yr2, mo2, dy2, date_mmddyy, date_ISO, dow_name, mo_long, tz_short, date_full
+    yr2, mo2, dy2, date_mmddyy, date_ISO, dow_name, mo_long, tz_short, date_long, date_full
   }
 
   // Time
@@ -86,6 +88,8 @@ function getDateTime(dt_fmt='US-12') {
 const today = getDateTime();
 
 // Build Date & Time Values
+const now_date_long = today["EN-12"].date.date_long
+const now_dow = today["EN-12"].date.dow_name 
 const now_date_ISO = today["EN-12"].date.date_ISO
 const now_time_12 = today["EN-12"].time.fmt_12hr_padSp
 const now_tz = today["EN-12"].date.tz_short
@@ -160,6 +164,9 @@ function processEntry() {
   console.log(`Details: ${input_details.value}`)
 
   // Update results
+  dateLong.innerHTML = now_date_long
+  dateDOWLong.innerHTML = now_dow
+
   entry_nowDate.innerHTML = now_date_ISO
   entry_nowTime.innerHTML = now_time_12
   entry_nowTz.innerHTML = now_tz
