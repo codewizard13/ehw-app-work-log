@@ -24,8 +24,14 @@ textarea.form-control:focus {
   display: none;
 }
 
+.date-long,
+.date-dow-long {
+  color: green;
+}
+
 #current-entry-date,
-#current-entry-time {
+#current-entry-time,
+#current-entry-tz {
   color: yellow;
   font-weight: bold;
 }

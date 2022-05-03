@@ -1,19 +1,38 @@
 // app.js
 
-// Define Elements
-const results = document.getElementById('results')
-const entryForm = document.getElementById('entry-form')
-const loader = document.getElementById('loading')
-const card = document.querySelector('.card')
-const heading = document.querySelector('.heading')
+// DEFINE ELEMENTS
 
-// Date Time Elements
-const nowDate = document.getElementById('current-entry-date')
-const nowTime = document.getElementById('current-entry-time')
+// Entry Form Elements
+const card = document.querySelector('.card')
+const headingFirst = document.querySelector('.heading:first-of-type')
+const entryForm = document.getElementById('entry-form')
 
 // UI Input Variables
 const UI_subject = document.getElementById('subject')
 const UI_details = document.getElementById('details')
+
+// Results Elements
+const loader = document.getElementById('loading')
+const results = document.getElementById('results')
+const dateLong = document.querySelector('.date-long')
+const dateDOWLong = document.querySelector('.date-dow-long')
+const subject = document.querySelector('.subject')
+const details = document.querySelector('.details')
+
+// .date-long,
+// .date-dow-long {
+//   color: green;
+// }
+
+// #current-entry-date,
+// #current-entry-time
+
+// Date Time Elements
+const nowDate = document.getElementById('current-entry-date')
+const nowTime = document.getElementById('current-entry-time')
+const nowTz = document.getElementById('current-entry-tz')
+
+
 
 // Get date and time
 function getDateTime(dt_fmt='US-12') {
@@ -128,7 +147,7 @@ function showError(error) {
   errorDiv.appendChild(document.createTextNode(error))
 
   // Insert error above heading
-  card.insertBefore(errorDiv, heading)
+  card.insertBefore(errorDiv, headingFirst)
 
   // Clear error after 3 secs
   setTimeout(clearError, 3000)
@@ -147,7 +166,7 @@ function processEntry() {
   // Show results
   results.style.display = 'block'
 
-  console.log(`Subject: ${subject.value}`)
-  console.log(`Details: ${details.value}`)
+  console.log(`Subject: ${UI_subject.value}`)
+  console.log(`Details: ${UI_details.value}`)
 
 }
