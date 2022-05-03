@@ -8,29 +8,22 @@ const headingFirst = document.querySelector('.heading:first-of-type')
 const entryForm = document.getElementById('entry-form')
 
 // UI Input Variables
-const UI_subject = document.getElementById('subject')
-const UI_details = document.getElementById('details')
+const input_subject = document.getElementById('subject')
+const input_details = document.getElementById('details')
 
 // Results Elements
 const loader = document.getElementById('loading')
 const results = document.getElementById('results')
 const dateLong = document.querySelector('.date-long')
 const dateDOWLong = document.querySelector('.date-dow-long')
-const subject = document.querySelector('.subject')
-const details = document.querySelector('.details')
 
-// .date-long,
-// .date-dow-long {
-//   color: green;
-// }
+const entry_subject = document.querySelector('.subject')
+const entry_details = document.querySelector('.details')
 
-// #current-entry-date,
-// #current-entry-time
-
-// Date Time Elements
-const nowDate = document.getElementById('current-entry-date')
-const nowTime = document.getElementById('current-entry-time')
-const nowTz = document.getElementById('current-entry-tz')
+// Results Date Time Elements
+const entry_nowDate = document.getElementById('current-entry-date')
+const entry_nowTime = document.getElementById('current-entry-time')
+const entry_nowTz = document.getElementById('current-entry-tz')
 
 
 
@@ -69,15 +62,17 @@ function getDateTime(dt_fmt='US-12') {
   var AmOrPm = hrs >= 12 ? 'PM' : 'AM';
   
   hrs = (hrs % 12) || 12;
-  var hrs_pad = hrs.toString().padStart(2, 0);
+  var hrs_pad_0 = hrs.toString().padStart(2, 0);
+  var hrs_pad_sp = hrs.toString().padStart(2, " ");
 
   var mins = cur_dt.getMinutes();
   var fmt_12hr = `${hrs}:${mins} ${AmOrPm}`;
-  var fmt_12hr_pad = `${hrs}:${mins} ${AmOrPm}`;
+  var fmt_12hr_pad0 = `${hrs_pad_0}:${mins} ${AmOrPm}`;
+  var fmt_12hr_padSp = `${hrs_pad_sp}:${mins} ${AmOrPm}`;
 
   // Time Object
   time_obj = {
-    hrs, AmOrPm, mins, fmt_12hr, fmt_12hr_pad
+    hrs, AmOrPm, mins, fmt_12hr, fmt_12hr_pad0, fmt_12hr_padSp
   }
 
   // Add properties to out object
@@ -91,15 +86,13 @@ function getDateTime(dt_fmt='US-12') {
 const today = getDateTime();
 
 // Build Date & Time Values
-const now_date = today["EN-12"].date.date_ISO
-console.log(`now_date:  ${now_date}`)
+const now_date_ISO = today["EN-12"].date.date_ISO
+const now_time_12 = today["EN-12"].time.fmt_12hr_padSp
+const now_tz = today["EN-12"].date.tz_short
 
 
 // Replace Date and Time in Current Entry
-nowDate.innerText = now_date
-
-
-console.log(`Today:  ${today["EN-12"].date.date_ISO}`)
+// console.log(`Today:  ${today["EN-12"].date.date_ISO}`)
 
 // Listen for submit
 entryForm.addEventListener('submit', function (e) {
@@ -123,7 +116,7 @@ function showResults() {
   console.log('Results will show ...')
 
   // Validate
-  if (UI_subject.value === "" || UI_details.value === "") {
+  if (input_subject.value === "" || input_details.value === "") {
     let error_text = 'Both fields must have a value'
     console.log(error_text)
     showError(error_text)
@@ -163,10 +156,18 @@ function processEntry() {
 
   // Hide loader
   loader.style.display = 'none'
+  console.log(`Subject: ${input_subject.value}`)
+  console.log(`Details: ${input_details.value}`)
+
+  // Update results
+  entry_nowDate.innerHTML = now_date_ISO
+  entry_nowTime.innerHTML = now_time_12
+  entry_nowTz.innerHTML = now_tz
+
+  entry_subject.innerHTML = input_subject.value
+  entry_details.innerHTML = input_details.value
+
   // Show results
   results.style.display = 'block'
-
-  console.log(`Subject: ${UI_subject.value}`)
-  console.log(`Details: ${UI_details.value}`)
 
 }
