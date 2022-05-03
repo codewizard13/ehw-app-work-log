@@ -3,6 +3,8 @@ Creator: Eric Hepperle
 Date Created: 05/02/22
 */
 
+@import url(css/messages.css);
+
 :root {
   /* COLORS */
   --cultured: #EEEEEE;
