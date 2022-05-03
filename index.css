@@ -24,8 +24,10 @@ textarea.form-control:focus {
   display: none;
 }
 
-#results {
-  /* background: greenyellow; */
+#current-entry-date,
+#current-entry-time {
+  color: yellow;
+  font-weight: bold;
 }
 
 .result-item {
