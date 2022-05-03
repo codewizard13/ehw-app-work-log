@@ -13,6 +13,18 @@ const heading = document.querySelector('.heading')
 const UI_subject = document.getElementById('subject')
 const UI_details = document.getElementById('details')
 
+// Date Time functions
+function getCurrentDateTime() {
+  var currentdate = new Date();
+  var datetime = "Last Sync: " + currentdate.getDate() + "/"
+      + (currentdate.getMonth()+1)+ "/"
+      + currentdate.getFullYear() + "@"
+      + currentdate.getHours() + ":"
+      + currentdate.getMinutes() + ":"
+      + currentdate.getSeconds();
+  return datetime;
+}
+
 
 // Listen for submit
 entryForm.addEventListener('submit', function (e) {
