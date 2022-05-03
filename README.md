@@ -28,10 +28,13 @@ This is a JavaScript app I conceived and built from scratch using JavaScript ES6
   
 ### Project Screenshots:
 
+![Warning](img/warning-1.jpg)
+
 #### Mockup (Google Slides)
 
 Here is the mockup I made in Google Slides.
 
+<!--
 <link rel="stylesheet" href="messages.css">
 
 <aside class="warning in-progress">
@@ -42,7 +45,7 @@ Here is the mockup I made in Google Slides.
     This README.md file is incomplete and may be missing key information.
   </div>
 </aside>
-
+ -->
 ![Mockup](img/screen-mockup-2.jpg)
 
 
