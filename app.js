@@ -6,3 +6,8 @@ const form = document.getElementById('entry-form')
 const inputSubject = document.getElementById('subject')
 const inputDetails = document.getElementById('details')
 const submitBtn = document.getElementById('submit-note')
+
+// RESULTS UI VARS
+const filter = document.getElementById('filter')
+const resultsList = document.querySelector('.collection')
+
