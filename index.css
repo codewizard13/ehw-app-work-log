@@ -22,7 +22,8 @@ textarea.form-control:focus {
   background: var(--lt-manila);
 }
 
-#loading, #results {
+/* Hide these elements when page is loaded */
+#loading /*#results*/ {
   display: none;
 }
 
