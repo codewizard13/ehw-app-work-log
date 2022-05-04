@@ -15,6 +15,7 @@
 
 <br>
 
+
 ## Purpose:
 
 **<u>App:</u>** Lets user type notes or log entries which are then stored and retrieved using local storage. Includes datea and time info. Plain vanilla JavaScript.
