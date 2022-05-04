@@ -1,10 +1,10 @@
-| Program Name     | **App: Work Logger** |
-| ---------------- | ------------------------------------------------ |
-| Public File Name | **README.md**                                    |
-| Date Created     | 05/03/22                                         |
-| Date Modified    | --                                               |
-| Version          | 1.00                                             |
-| Programmer       | Eric Hepperle                                    |
+| Program Name         | **App: Work Logger** |
+| -------------------- | -------------------- |
+| Public File Name     | **README.md**        |
+| Date Project Started | 05/02/22             |
+| Date Last Versioned  | --                   |
+| Version              | 1.00                 |
+| Programmer           | Eric Hepperle        |
 
 ### TECHNOLOGIES:
 
@@ -30,9 +30,9 @@ This is a JavaScript app I conceived and built from scratch using JavaScript ES6
 
 ![Warning](img/warning-1.jpg)
 
-#### Mockup (Google Slides)
+#### Wireframe (Google Slides)
 
-Here is the mockup I made in Google Slides.
+Here is the (low fidelity) wireframe I made in Google Slides.
 
 <!--
 <link rel="stylesheet" href="messages.css">
