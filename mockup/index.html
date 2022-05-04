@@ -18,7 +18,12 @@
   <div class="container">
     <div class="row">
       <div class="col-md-16 mx-auto">
+
+        <!-- CARD -->
         <div class="card card-body text-center mt-5">
+
+          <!-- CARD CONTENT -->
+          <div class="card-content">
           <h1 class="heading display-5 pb-3 fw-bold">Work Log</h1>
 
           <!-- FORM -->
@@ -27,7 +32,7 @@
             <div class="form-group mb-3">
               <div class="input-group">
                 <span class="input-group-text">Subject</span>
-                <input type="text" class="form-control" id="subject">
+                <input type="text" class="form-control" id="subject" value"">
               </div>
             </div>
             <!--/ form-group -->
@@ -35,7 +40,7 @@
             <div class="form-group mb-3">
               <div class="input-group">
                 <!-- <label for="floatingTextarea">Comments</label> -->
-                <textarea class="form-control" placeholder="Type your note here." id="details"></textarea>
+                <textarea class="form-control" placeholder="Type your note here." id="details" value=""></textarea>
               </div>
             </div>
             <!--/ form-group -->
@@ -58,27 +63,39 @@
 
             <h1 class="heading display-5 pb-3 fw-bold mt-5">Results</h1>
 
-            <h2 class="heading display-7 pb3 text-end mb-3 me-5 text-secondary">
-              Thursday | <strong>January 4, 2022</strong>
+            <!-- FILTER LOG ENTRIES -->
+            <div class="card-action">
+              <h5 id="task-title"></h5>
+              <div class="input-field col">
+                <input type="text" name="filter" id="filter">
+                <label for="filter">Filter Log Entries</label>
+              </div>
+            </div>
+
+            <h2 class="heading today display-7 pb3 text-center mb-3 text-secondary">
+              <span class="date-dow-long">Thursday</span> | <span class="date-long">January 4, 2022</span></h3>
             </h2>
 
+            <!-- RESULT ITEM -->
             <div class="container result-item">
 
               <div class="row ">
 
                 <div class="col col-3">
-                  Date: 2022-01-03<br>
-                  Time: 12:04 PM (CST)
+                  Date: <span id="current-entry-date">2022-01-03</span><br>
+                  Time: <span id="current-entry-time">12:04 PM </span><br>
+                  Timezone: <span id="current-entry-tz">(CST)</span><br>
+                  
                 </div>
 
                 <div class="col col-9">
                   <div class="row">
                     <div class="col">
-                      <span>Subject Name Goes Here</span>
+                      <span class="subject">Subject Name Goes Here</span>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col">
+                    <div class="col details">
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia leo quis nibh luctus
                         feugiat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
                         egestas. Sed gravida augue quis tortor pellentesque pharetra. Integer consequat mi nulla, sit
@@ -113,7 +130,7 @@
 
 
 
-        </div>
+        </div><!--/ card -->
       </div>
     </div>
   </div>
