@@ -3,6 +3,8 @@ Creator: Eric Hepperle
 Date Created: 05/02/22
 */
 
+@import url(css/messages.css);
+
 :root {
   /* COLORS */
   --cultured: #EEEEEE;
@@ -24,8 +26,16 @@ textarea.form-control:focus {
   display: none;
 }
 
-#results {
-  /* background: greenyellow; */
+.date-long,
+.date-dow-long {
+  color: green;
+}
+
+#current-entry-date,
+#current-entry-time,
+#current-entry-tz {
+  color: yellow;
+  font-weight: bold;
 }
 
 .result-item {
