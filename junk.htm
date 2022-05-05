@@ -1,0 +1,69 @@
+<li class="collection-item card list-group-item mt-3 d-flex justify-content-between">
+  <div class="card-body">
+    <div>
+      <h5 class="card-title text-left">Thank You! Job reference for O'Reilly</h5>
+      <p class="card-text text-left"></p>
+      <p>When I shrink the size of the page to preview how it would look in a mobile device the text nicely adjusts
+        itself, however the images don't. Now i have about 3000 such images and if there is an attribute that I have to
+        apply to every individual image tag, that won't be feasible.</p>
+
+      <p>Is there any other way using CSS or bootstrap or javascript where I can reduce the size of the image for a
+        device size, keeping the image aspect ratio intact ?</p>
+    </div>
+    <a class="delete-item secondary-content"><i class="fa fa-remove" aria-hidden="true"></i></a>
+  </div>
+</li>
+
+
+<!--  QUICK FLEXBOX LAYOUT TEST -->
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  li {
+    border: solid gainsboro 1px;
+    list-style: none;
+    padding: 1rem;
+  }
+  .left-col {
+    background-color: lightslategray;
+  }
+  .rt-col {
+    background-color:blueviolet; 
+  }
+  .del-link,
+  .del-iink:visited,
+  .del-link:hover {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
+</style>
+
+<li>
+
+  <div class="left-col">
+    <div class="date">Date: 2022-05-05</div>
+    <div class="time">Time:  7:18 AM</div>
+    <div class="tz">Time Zone: CDT</div>
+  </div>
+  
+  <div class="content">
+    <div class="subject">Thank You! Job reference for O'Reilly</div>
+    <div class="deets">
+
+      <p>When I shrink the size of the page to preview how it would look in a mobile device the text nicely adjusts
+        itself, however the images don't. Now i have about 3000 such images and if there is an attribute that I have to
+        apply to every individual image tag, that won't be feasible.</p>
+
+      <p>Is there any other way using CSS or bootstrap or javascript where I can reduce the size of the image for a
+        device size, keeping the image aspect ratio intact ?</p>
+
+    </div>
+  </div>
+  
+  <div class="rt-col">
+    <a href="#" class="del-link">x</a>
+  </div>
+
+</li>
