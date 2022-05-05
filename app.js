@@ -77,15 +77,10 @@ function addEntry(e) {
   </div>
   
   <div class="content">
-    <div class="subject">Thank You! Job reference for O'Reilly</div>
+    <div class="subject">${inputSubject.value}</div>
     <div class="deets">
 
-      <p>When I shrink the size of the page to preview how it would look in a mobile device the text nicely adjusts
-        itself, however the images don't. Now i have about 3000 such images and if there is an attribute that I have to
-        apply to every individual image tag, that won't be feasible.</p>
-
-      <p>Is there any other way using CSS or bootstrap or javascript where I can reduce the size of the image for a
-        device size, keeping the image aspect ratio intact ?</p>
+      ${inputDetails.value}
 
     </div>
   </div>
