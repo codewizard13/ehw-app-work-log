@@ -27,6 +27,7 @@ function addEntry(e) {
   const li = document.createElement('li')
   // Add classes to LI
   li.className = 'collection-item card list-group-item mt-3 d-flex justify-content-between' // for materialize
+/*
 
   // Create Subject div
   const subj_div = document.createElement('div')
@@ -51,6 +52,7 @@ function addEntry(e) {
   <a class="delete-item secondary-content"><i class="fa fa-remove" aria-hidden="true"></i></a>
   `
 
+
   const testCrd = document.createElement('div')
   testCrd.className = 'card-body'
   testCrd.innerHTML = test_card_html
@@ -63,8 +65,42 @@ function addEntry(e) {
   li.appendChild(testCrd)
 
   // li.appendChild(delLink)
+  */
 
-  // APPEND LI TO UL
+  // Create LI with Template Literal
+  let li_html = `
+
+  <div class="left-col">
+    <div class="date">Date: 2022-05-05</div>
+    <div class="time">Time:  7:18 AM</div>
+    <div class="tz">Time Zone: CDT</div>
+  </div>
+  
+  <div class="content">
+    <div class="subject">Thank You! Job reference for O'Reilly</div>
+    <div class="deets">
+
+      <p>When I shrink the size of the page to preview how it would look in a mobile device the text nicely adjusts
+        itself, however the images don't. Now i have about 3000 such images and if there is an attribute that I have to
+        apply to every individual image tag, that won't be feasible.</p>
+
+      <p>Is there any other way using CSS or bootstrap or javascript where I can reduce the size of the image for a
+        device size, keeping the image aspect ratio intact ?</p>
+
+    </div>
+  </div>
+  
+  <div class="rt-col">
+    <a href="#" class="del-link">x</a>
+  </div>
+
+  `
+  console.log(li)
+
+  // const li = document.createElement(li)
+  li.innerHTML = li_html
+
+  // // APPEND LI TO UL
   resultsList.appendChild(li)
 
 

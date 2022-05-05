@@ -17,22 +17,29 @@ Date Created: 05/02/22
   --rad: .4rem;
 }
 
+/* UI INPUT */
+
 input.form-control:focus,
 textarea.form-control:focus {
   background: var(--lt-manila);
 }
+
+/* LOADING */
 
 /* Hide these elements when page is loaded */
 #loading /*#results*/ {
   display: none;
 }
 
+/* UI OUTPUT */
+
 .date-long,
 .date-dow-long {
   color: green;
 }
 
-#current-entry-date,
+
+/* #current-entry-date,
 #current-entry-time,
 #current-entry-tz {
   color: yellow;
@@ -40,9 +47,7 @@ textarea.form-control:focus {
 }
 
 .result-item {
-  /* background: lightgray; */
   color: white;
-  /* border: solid 1px black; */
   padding: 12px;
 }
 
@@ -53,14 +58,12 @@ textarea.form-control:focus {
 
 .result-item [class*="col"]:first-of-type {
   min-height: 3rem;
-  /* background: orange; */
 }
 
 .result-item>.row>.col:first-of-type {
   border-radius: var(--rad) 0 0 var(--rad);
   background: var(--spanishGray);
   padding-top: 1rem;
-  /* min-width: 140px; */
 }
 
 .result-item>.row>.col>.row:first-of-type>.col {
@@ -78,4 +81,4 @@ textarea.form-control:focus {
   padding-top: 1rem;
   border: var(--spanishGray) solid;
   border-width: 0 1px 1px 0;
-}
+} */
