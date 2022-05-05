@@ -42,9 +42,25 @@ function addEntry(e) {
   // Add icon HTML
   delLink.innerHTML = '<i class="fa fa-remove"></i>' // requires FontAwesome
   
-  
+  /* TESTING BOOSTRAP CARD LITERAL */
+  const test_card_html = `
+  <div class="card" style="width: 90%;">
+  <img class="card-img-top" src="img/test.jpg" alt="Card image cap" style="">
+  <div class="card-body">
+    <h5 class="card-title">${inputSubject.value}</h5>
+    <p class="card-text">${inputDetails.value}</a>
+  </div>
+  </div>`
+
+  const testCrd = document.createElement('div')
+  testCrd.innerHTML = test_card_html
+  console.log(testCrd)
+
+
   // Append CHILD ELEMENTS to LI
   li.appendChild(subj_div)
+  li.appendChild(testCrd)
+
   li.appendChild(delLink)
 
   // APPEND LI TO UL
