@@ -50,5 +50,10 @@ function addEntry(e) {
   // APPEND LI TO UL
   resultsList.appendChild(li)
 
+
+  // CLEAR INPUT after submit
+  inputSubject.value = ''
+  inputDetails.value = ''
+
   e.preventDefault()
 }
