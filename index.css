@@ -82,3 +82,51 @@ textarea.form-control:focus {
   border: var(--spanishGray) solid;
   border-width: 0 1px 1px 0;
 } */
+
+/* LI CARD STYLING */
+
+* {
+  box-sizing: border-box;
+}
+li {
+  border: solid gainsboro 1px;
+  list-style: none;
+  padding: 1rem;
+  display: flex;
+}
+li > * {
+  display: flex;
+  flex-direction: column;
+}
+.left-col {
+  background-color: lightslategray;
+  padding: .6rem;
+  min-width: 150px;
+  color: white;
+}
+.content {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background-color: aliceblue;
+}
+.rt-col {
+  background-color:blueviolet;
+  padding: .6rem; 
+}
+.del-link,
+.del-iink:visited,
+.del-link:hover {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Subject and Details */
+.subject {
+  background-color: aqua;
+  padding: .6rem 1rem;
+}
+.deets {
+  background-color: antiquewhite;
+  padding: 0 1rem;
+}

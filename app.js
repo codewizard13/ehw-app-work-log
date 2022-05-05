@@ -26,7 +26,7 @@ function addEntry(e) {
   // Create LI element
   const li = document.createElement('li')
   // Add classes to LI
-  li.className = 'collection-item card list-group-item mt-3 d-flex justify-content-between' // for materialize
+  // li.className = 'collection-item card list-group-item mt-3 d-flex justify-content-between' // for materialize
 /*
 
   // Create Subject div
