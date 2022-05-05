@@ -25,17 +25,26 @@ function addEntry(e) {
 
   // Create LI element
   const li = document.createElement('li')
-  // Add class
-  li.className = 'collection-item list-group-item mt-3' // for materialize
-  // Create text node and append to LI
-  li.appendChild(document.createTextNode(inputSubject.value))
-  // Create a new link element for DELETE x icon
+  // Add classes to LI
+  li.className = 'collection-item list-group-item mt-3 d-flex justify-content-between' // for materialize
+
+  // Create Subject div
+  const subj_div = document.createElement('div')
+  // Add Classes
+  subj_div.className = ''
+  // Create subj text node and append
+  subj_div.appendChild(document.createTextNode(inputSubject.value))
+
+  // Create Delete link
   const delLink = document.createElement('a')
   // Add class
-  delLink.className = 'delete-item secondary-content ' // materialize classes
+  delLink.className = 'delete-item secondary-content' // materialize classes
   // Add icon HTML
-  delLink.innerHTML = '<i class="fa fa-remove justify-self-end"></i>' // requires FontAwesome
-  // Append delete link to li
+  delLink.innerHTML = '<i class="fa fa-remove"></i>' // requires FontAwesome
+  
+  
+  // Append CHILD ELEMENTS to LI
+  li.appendChild(subj_div)
   li.appendChild(delLink)
 
   // APPEND LI TO UL
