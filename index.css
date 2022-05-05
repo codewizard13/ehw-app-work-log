@@ -13,6 +13,7 @@ Date Created: 05/02/22
   --lightGray: #D2D2D2;
   --brightPumpkin: #ff9901;
   --lt-manila: #ffffe5;
+  --lt-sand: #fff8f0;
 
   --rad: .4rem;
 }
@@ -98,19 +99,20 @@ li > * {
   display: flex;
   flex-direction: column;
 }
+li > * > * {
+  text-align: left;
+}
 .left-col {
-  background-color: lightslategray;
+  background-color: var(--spanishGray);
   padding: .6rem;
   min-width: 150px;
   color: white;
 }
 .content {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin: 0 .5rem;
   background-color: aliceblue;
 }
 .rt-col {
-  background-color:blueviolet;
   padding: .6rem; 
 }
 .del-link,
@@ -123,10 +125,12 @@ li > * {
 
 /* Subject and Details */
 .subject {
-  background-color: aqua;
+  background-color: var(--davysGrey);
+  color: var(--brightPumpkin);
   padding: .6rem 1rem;
+  font-weight: bold;
 }
 .deets {
-  background-color: antiquewhite;
+  background-color: var(--lt-sand);
   padding: 0 1rem;
 }

@@ -91,7 +91,7 @@ function addEntry(e) {
   </div>
   
   <div class="rt-col">
-    <a href="#" class="del-link">x</a>
+    <a class="delete-item secondary-content"><i class="fa fa-remove" aria-hidden="true"></i></a>
   </div>
 
   `
