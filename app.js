@@ -22,7 +22,7 @@ function loadEventListeners() {
 }
 
 /** Get date and time */
-function getDateTime(dt_fmt='US-12') {
+function getDateTime(dt_fmt = 'US-12') {
 
   var out_obj = {};
   var date_obj = {};
@@ -35,7 +35,7 @@ function getDateTime(dt_fmt='US-12') {
   var dy2 = String(cur_dt.getDate()).padStart(2, 0);
   var date_mmddyy = `${mo2}/${dy2}/${yr2}`;
   var date_ISO = `${cur_dt.getFullYear()}-${mo2}-${dy2}`;
-  var dow_name = Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(cur_dt);
+  var dow_name = Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(cur_dt);
   var mo_long = cur_dt.toLocaleString('default', { month: 'long' });
 
   // Timezone Abbreviation
@@ -55,7 +55,7 @@ function getDateTime(dt_fmt='US-12') {
   // Time
   var hrs = cur_dt.getHours(); // gets 24 hr val
   var AmOrPm = hrs >= 12 ? 'PM' : 'AM';
-  
+
   hrs = (hrs % 12) || 12;
   var hrs_pad_0 = hrs.toString().padStart(2, 0);
   var hrs_pad_sp = hrs.toString().padStart(2, " ");
@@ -79,20 +79,6 @@ function getDateTime(dt_fmt='US-12') {
 
   return out_obj;
 }
-const today = getDateTime();
-
-// Build Date & Time Values
-const now_date_long = today["EN-12"].date.date_long
-const now_dow = today["EN-12"].date.dow_name 
-const now_date_ISO = today["EN-12"].date.date_ISO
-const now_time_12 = today["EN-12"].time.fmt_12hr_padSp
-const now_tz = today["EN-12"].date.tz_short
-
-console.log(now_date_long)
-console.log(now_dow)
-console.log(now_date_ISO)
-console.log(now_time_12)
-console.log(now_tz)
 
 /** Add Entry Card*/
 function addEntry(e) {
@@ -102,47 +88,63 @@ function addEntry(e) {
   // Add classes to LI
   li.className = 'collection-item' // for materialize
 
+  // Add time and date
+  const today = getDateTime();
+
+  // Build Date & Time Values
+  const now_date_long = today["EN-12"].date.date_long
+  const now_dow = today["EN-12"].date.dow_name
+  const now_date_ISO = today["EN-12"].date.date_ISO
+  const now_time_12 = today["EN-12"].time.fmt_12hr_padSp
+  const now_tz = today["EN-12"].date.tz_short
+
+  // console.log(now_date_long)
+  // console.log(now_dow)
+  // console.log(now_date_ISO)
+  console.log(now_time_12)
+  // console.log(now_tz)
 
 
-/*
 
-  // Create Subject div
-  const subj_div = document.createElement('div')
-  // Add Classes
-  subj_div.className = ''
-  // Create subj text node and append
-  subj_div.appendChild(document.createTextNode(inputSubject.value))
-
-  // Create Delete link
-  const delLink = document.createElement('a')
-  // Add class
-  delLink.className = 'delete-item secondary-content' // materialize classes
-  // Add icon HTML
-  delLink.innerHTML = '<i class="fa fa-remove"></i>' // requires FontAwesome
-
-  // Entry Card template literal
-  let test_card_html = `
-  <div>
-    <h5 class="card-title text-left">${inputSubject.value}</h5>
-    <p class="card-text text-left">${inputDetails.value}</a>
-  </div>
-  <a class="delete-item secondary-content"><i class="fa fa-remove" aria-hidden="true"></i></a>
-  `
-
-
-  const testCrd = document.createElement('div')
-  testCrd.className = 'card-body'
-  testCrd.innerHTML = test_card_html
-  console.log(testCrd)
-  // testCrd.appendChild(delLink)
-
-
-  // Append CHILD ELEMENTS to LI
-  // li.appendChild(subj_div)
-  li.appendChild(testCrd)
-
-  // li.appendChild(delLink)
-  */
+  /*
+  
+    // Create Subject div
+    const subj_div = document.createElement('div')
+    // Add Classes
+    subj_div.className = ''
+    // Create subj text node and append
+    subj_div.appendChild(document.createTextNode(inputSubject.value))
+  
+    // Create Delete link
+    const delLink = document.createElement('a')
+    // Add class
+    delLink.className = 'delete-item secondary-content' // materialize classes
+    // Add icon HTML
+    delLink.innerHTML = '<i class="fa fa-remove"></i>' // requires FontAwesome
+  
+    // Entry Card template literal
+    let test_card_html = `
+    <div>
+      <h5 class="card-title text-left">${inputSubject.value}</h5>
+      <p class="card-text text-left">${inputDetails.value}</a>
+    </div>
+    <a class="delete-item secondary-content"><i class="fa fa-remove" aria-hidden="true"></i></a>
+    `
+  
+  
+    const testCrd = document.createElement('div')
+    testCrd.className = 'card-body'
+    testCrd.innerHTML = test_card_html
+    console.log(testCrd)
+    // testCrd.appendChild(delLink)
+  
+  
+    // Append CHILD ELEMENTS to LI
+    // li.appendChild(subj_div)
+    li.appendChild(testCrd)
+  
+    // li.appendChild(delLink)
+    */
 
   // Create LI with Template Literal
   let li_html = `
