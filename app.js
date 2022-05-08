@@ -17,6 +17,8 @@ loadEventListeners()
 
 /** Load event listeners */
 function loadEventListeners() {
+  // DOM Load event
+  document.addEventListener('DOMContentLoaded', getEntries)
   // Add log entry event
   form.addEventListener('submit', addEntry)
   // Remove entry event
@@ -26,6 +28,62 @@ function loadEventListeners() {
   // Clear all entries event
   clearAllBtn.addEventListener('click', clearEntries)
 
+}
+
+/** Get entries from Local Storage */
+function getEntries() {
+  let entries
+
+  // Check if entries already exist
+  if (localStorage.getItem('entries') === null) {
+    entries = []
+  } else {
+    entries = JSON.parse(localStorage.getItem('entries'))
+  }
+
+  // Loop through entries in local storage
+  entries.forEach(function (entry) {
+    // console.log("entry from localStorage:")
+    // console.log(entry.subject)
+    // console.log('----------------------------')
+
+    // Create LI element
+    const li = document.createElement('li')
+    // Add classes to LI
+    li.className = 'collection-item' // for materialize
+
+    // Retrieve Date & Time Values from entry object
+    const subject = entry.subject
+    const deets = entry.deets
+    const dateISO = entry.dt.date
+    const time = entry.dt.time
+    const tz = entry.dt.tz
+
+      
+    // Create LI with Template Literal
+    let li_html = `
+      <div class="left-col">
+        <div class="date">Date: <span>${dateISO}</span></div>
+        <div class="time">Time:  <span>${time}</span></div>
+        <div class="tz">Time Zone: <span>${tz}</span></div>
+      </div>
+
+      <div class="content">
+        <div class="subject">${subject}</div>
+        <div class="deets">${deets}</div>
+      </div>
+
+      <div class="rt-col">
+        <a class="delete-item secondary-content"><i class="fa fa-remove" aria-hidden="true"></i></a>
+      </div>`
+
+// const li = document.createElement(li)
+li.innerHTML = li_html
+
+
+    // APPEND LI TO UL
+    resultsList.appendChild(li)
+  })
 }
 
 /** Get date and time */
@@ -200,7 +258,7 @@ function addEntry(e) {
 } // END addEntry()
 
 /** Store Event */
-function storeEntryInLocalStorage(entry){
+function storeEntryInLocalStorage(entry) {
   let entries
 
   // Check if entries already exist
@@ -219,7 +277,7 @@ function storeEntryInLocalStorage(entry){
 }
 
 /** Remove entry */
-function removeEntry(e){
+function removeEntry(e) {
   // Use EVENT DELEGATION
   if (e.target.parentElement.classList.contains('delete-item')) {
     // console.log(e.target)
@@ -239,12 +297,12 @@ function clearEntries(e) {
 }
 
 /** Filter Events */
-function filterEvents (e) {
+function filterEvents(e) {
   const needle = e.target.value.toLowerCase()
 
   // Loop through all entries
   document.querySelectorAll('.collection-item').forEach(
-    function(entry) {
+    function (entry) {
       const item = entry.innerText
       console.log("item:")
       console.log(item)
@@ -255,12 +313,8 @@ function filterEvents (e) {
       } else {
         entry.style.display = 'none'
       }
-  })
+    })
 
   console.log('needle:')
   console.log(needle)
 }
-
-
-
-
