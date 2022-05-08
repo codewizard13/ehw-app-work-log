@@ -190,7 +190,11 @@ function addEntry(e) {
 /** Remove entry */
 function removeEntry(e){
   // Use EVENT DELEGATION
-  console.log(e.target)
+  if (e.target.parentElement.classList.contains('delete-item')) {
+    // console.log(e.target)
+    e.target.parentElement.parentElement.parentElement.remove()
+  }
+
 }
 
 
