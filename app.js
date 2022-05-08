@@ -164,11 +164,7 @@ function addEntry(e) {
   
   <div class="content">
     <div class="subject">${inputSubject.value}</div>
-    <div class="deets">
-
-      ${inputDetails.value}
-
-    </div>
+    <div class="deets">${inputDetails.value}</div>
   </div>
   
   <div class="rt-col">
@@ -181,15 +177,45 @@ function addEntry(e) {
   // const li = document.createElement(li)
   li.innerHTML = li_html
 
-  // // APPEND LI TO UL
+  // APPEND LI TO UL
   resultsList.appendChild(li)
 
+  // Add event info to object
+  const entryObj = {}
+  entryObj.subject = inputSubject.value
+  entryObj.deets = inputDetails.value
+  entryObj.dt = {}
+  entryObj.dt.date = now_date_ISO
+  entryObj.dt.time = now_time_12
+  entryObj.dt.tz = now_tz
+
+  // Store Events in LOCAL STORAGE
+  storeEntryInLocalStorage(entryObj)
 
   // CLEAR INPUT after submit
   inputSubject.value = ''
   inputDetails.value = ''
 
   e.preventDefault()
+} // END addEntry()
+
+/** Store Event */
+function storeEntryInLocalStorage(entry){
+  let entries
+
+  // Check if entries already exist
+  if (localStorage.getItem('entries') === null) {
+    entries = []
+  } else {
+    entries = JSON.parse(localStorage.getItem('entries'))
+  }
+
+  // Push entry onto entries
+  entries.push(entry)
+
+  // Add entries array to localStorage, converting to string
+  localStorage.setItem('entries', JSON.stringify(entries))
+
 }
 
 /** Remove entry */
