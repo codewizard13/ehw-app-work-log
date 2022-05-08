@@ -206,7 +206,10 @@ function removeEntry(e){
 
 /** Clear All Entries */
 function clearEntries(e) {
-  
+  // While there still is a first child means 'at least one item' means 'not empty'
+  while (resultsList.firstChild) {
+    resultsList.removeChild(resultsList.firstChild)
+  }
 }
 
 /** Filter Events */
