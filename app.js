@@ -18,6 +18,8 @@ loadEventListeners()
 function loadEventListeners() {
   // Add log entry event
   form.addEventListener('submit', addEntry)
+  // Remove entry event
+  resultsList.addEventListener('click', removeEntry)
 
 }
 
@@ -184,3 +186,13 @@ function addEntry(e) {
 
   e.preventDefault()
 }
+
+/** Remove entry */
+function removeEntry(e){
+  // Use EVENT DELEGATION
+  console.log(e.target)
+}
+
+
+
+
