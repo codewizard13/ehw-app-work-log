@@ -3,6 +3,7 @@
 // DEFINE UI VARS
 const topHeader = document.querySelector('h1:first-of-type')
 const form = document.getElementById('entry-form')
+const clearAllBtn = document.getElementById('clear-tasks')
 const inputSubject = document.getElementById('subject')
 const inputDetails = document.getElementById('details')
 const submitBtn = document.getElementById('submit-note')
@@ -22,6 +23,8 @@ function loadEventListeners() {
   resultsList.addEventListener('click', removeEntry)
   // Filter entries
   filter.addEventListener('keyup', filterEvents)
+  // Clear all entries event
+  clearAllBtn.addEventListener('click', clearEntries)
 
 }
 
@@ -199,6 +202,11 @@ function removeEntry(e){
     }
   }
 
+}
+
+/** Clear All Entries */
+function clearEntries(e) {
+  
 }
 
 /** Filter Events */
