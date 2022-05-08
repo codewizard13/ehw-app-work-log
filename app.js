@@ -59,7 +59,7 @@ function getEntries() {
     const time = entry.dt.time
     const tz = entry.dt.tz
 
-      
+
     // Create LI with Template Literal
     let li_html = `
       <div class="left-col">
@@ -77,8 +77,8 @@ function getEntries() {
         <a class="delete-item secondary-content"><i class="fa fa-remove" aria-hidden="true"></i></a>
       </div>`
 
-// const li = document.createElement(li)
-li.innerHTML = li_html
+    // const li = document.createElement(li)
+    li.innerHTML = li_html
 
 
     // APPEND LI TO UL
@@ -278,14 +278,59 @@ function storeEntryInLocalStorage(entry) {
 
 /** Remove entry */
 function removeEntry(e) {
+  // Define entry element to delete
+  const li = e.target.parentElement.parentElement.parentElement
+
   // Use EVENT DELEGATION
   if (e.target.parentElement.classList.contains('delete-item')) {
     // console.log(e.target)
     if (confirm('Are you sure you want to DELETE this entry?')) {
-      e.target.parentElement.parentElement.parentElement.remove()
+      li.remove()
+
+      // Remove from Local Storage
+      removeEntryFromLocalStorage(li)
+
     }
   }
 
+
+
+}
+
+/** Remove Entry from Local Storage */
+function removeEntryFromLocalStorage(entryItem) {
+  let entries
+  console.log('entryItem: ')
+  console.log(entryItem)
+  // Check if entries already exist
+  if (localStorage.getItem('entries') === null) {
+    entries = []
+  } else {
+    entries = JSON.parse(localStorage.getItem('entries'))
+  }
+
+
+  console.log('entries')
+  console.log(entries)
+  console.log('-------------------------')
+
+  // Loop through each entry
+  entries.forEach(function (entry, index) {
+    console.log('entry: ')
+    console.log(JSON.stringify(entry))
+    console.log('entryItem.textContent: ')
+    console.log(JSON.stringify(entryItem.textContent))
+    console.log('-------------------------')
+    if (entryItem.innerText === entry.innerText) {
+      console.log('SAME')
+      entries.splice(index, 1)
+    } else {
+      console.log('DIFFERENT')
+    }
+  })
+
+  // Set localStorage again
+  localStorage.setItem('entries', JSON.stringify(entries))
 }
 
 /** Clear All Entries */
