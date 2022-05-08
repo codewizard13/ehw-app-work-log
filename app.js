@@ -20,6 +20,8 @@ function loadEventListeners() {
   form.addEventListener('submit', addEntry)
   // Remove entry event
   resultsList.addEventListener('click', removeEntry)
+  // Filter entries
+  filter.addEventListener('keyup', filterEvents)
 
 }
 
@@ -192,9 +194,34 @@ function removeEntry(e){
   // Use EVENT DELEGATION
   if (e.target.parentElement.classList.contains('delete-item')) {
     // console.log(e.target)
-    e.target.parentElement.parentElement.parentElement.remove()
+    if (confirm('Are you sure you want to DELETE this entry?')) {
+      e.target.parentElement.parentElement.parentElement.remove()
+    }
   }
 
+}
+
+/** Filter Events */
+function filterEvents (e) {
+  const needle = e.target.value.toLowerCase()
+
+  // Loop through all entries
+  document.querySelectorAll('.collection-item').forEach(
+    function(entry) {
+      const item = entry.innerText
+      console.log("item:")
+      console.log(item)
+      console.log('----------------------------')
+
+      if (item.toLowerCase().indexOf(needle) != -1) {
+        entry.style.display = 'flex'
+      } else {
+        entry.style.display = 'none'
+      }
+  })
+
+  console.log('needle:')
+  console.log(needle)
 }
 
 
