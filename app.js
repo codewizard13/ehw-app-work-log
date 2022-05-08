@@ -55,6 +55,8 @@ function getEntries() {
     const li = document.createElement('li')
     // Add classes to LI
     li.className = 'collection-item' // for materialize
+    // Add data item
+    li.setAttribute('id', entry.id)
 
     // Retrieve Date & Time Values from entry object
     const subject = entry.subject
@@ -193,6 +195,8 @@ function addEntry(e) {
   const entry_id = `${unix_timestamp}_${sub_part}`
   console.log('entry_id: ' + entry_id)
 
+  // Add ID to LI
+  li.setAttribute('id', entry_id)
 
   // Create LI with Template Literal
   let li_html = `
@@ -292,18 +296,19 @@ function removeEntryFromLocalStorage(entryItem) {
   }
 
 
-  console.log('entries')
-  console.log(entries)
-  console.log('-------------------------')
+  // console.log('entries')
+  // console.log(entries)
+  // console.log('-------------------------')
 
   // Loop through each entry
   entries.forEach(function (entry, index) {
-    console.log('entry: ')
-    console.log(JSON.stringify(entry))
-    console.log('entryItem.textContent: ')
-    console.log(JSON.stringify(entryItem.textContent))
+    console.log('entry.id: ')
+    console.log(entry.id)
+    console.log('entryItem.id: ')
+    console.log(entryItem.id)
+    // console.log(JSON.stringify(entryItem.textContent))
     console.log('-------------------------')
-    if (entryItem.innerText === entry.innerText) {
+    if (entryItem.id === entry.id) {
       console.log('SAME')
       entries.splice(index, 1)
     } else {
