@@ -18,7 +18,81 @@ loadEventListeners()
 function loadEventListeners() {
   // Add log entry event
   form.addEventListener('submit', addEntry)
+
 }
+
+/** Get date and time */
+function getDateTime(dt_fmt='US-12') {
+
+  var out_obj = {};
+  var date_obj = {};
+  var time_obj = {};
+  var cur_dt = new Date();
+
+  // Date
+  var yr2 = cur_dt.getFullYear().toString().substring(2);
+  var mo2 = String(cur_dt.getMonth() + 1).padStart(2, 0);
+  var dy2 = String(cur_dt.getDate()).padStart(2, 0);
+  var date_mmddyy = `${mo2}/${dy2}/${yr2}`;
+  var date_ISO = `${cur_dt.getFullYear()}-${mo2}-${dy2}`;
+  var dow_name = Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(cur_dt);
+  var mo_long = cur_dt.toLocaleString('default', { month: 'long' });
+
+  // Timezone Abbreviation
+  const tz_short = cur_dt.toLocaleDateString('en-US', {
+    day: '2-digit',
+    timeZoneName: 'short',
+  }).slice(4)
+
+  var date_long = `${mo_long} ${dy2}, ${cur_dt.getFullYear()}`;
+  var date_full = `${dow_name}, ${mo_long} ${dy2}, ${cur_dt.getFullYear()}`;
+
+  // Date Object
+  date_obj = {
+    yr2, mo2, dy2, date_mmddyy, date_ISO, dow_name, mo_long, tz_short, date_long, date_full
+  }
+
+  // Time
+  var hrs = cur_dt.getHours(); // gets 24 hr val
+  var AmOrPm = hrs >= 12 ? 'PM' : 'AM';
+  
+  hrs = (hrs % 12) || 12;
+  var hrs_pad_0 = hrs.toString().padStart(2, 0);
+  var hrs_pad_sp = hrs.toString().padStart(2, " ");
+
+  var mins = cur_dt.getMinutes();
+  var mins_pad_0 = mins.toString().padStart(2, 0);
+  var fmt_12hr = `${hrs}:${mins} ${AmOrPm}`;
+  var fmt_12hr_pad0 = `${hrs_pad_0}:${mins_pad_0} ${AmOrPm}`;
+  var fmt_12hr_padSp = `${hrs_pad_sp}:${mins_pad_0} ${AmOrPm}`;
+
+  // Time Object
+  time_obj = {
+    hrs, AmOrPm, mins_pad_0, fmt_12hr, fmt_12hr_pad0, fmt_12hr_padSp
+  }
+
+  // Add properties to out object
+  out_obj.dt = cur_dt;
+  out_obj['EN-12'] = {};
+  out_obj['EN-12'].date = date_obj;
+  out_obj['EN-12'].time = time_obj;
+
+  return out_obj;
+}
+const today = getDateTime();
+
+// Build Date & Time Values
+const now_date_long = today["EN-12"].date.date_long
+const now_dow = today["EN-12"].date.dow_name 
+const now_date_ISO = today["EN-12"].date.date_ISO
+const now_time_12 = today["EN-12"].time.fmt_12hr_padSp
+const now_tz = today["EN-12"].date.tz_short
+
+console.log(now_date_long)
+console.log(now_dow)
+console.log(now_date_ISO)
+console.log(now_time_12)
+console.log(now_tz)
 
 /** Add Entry Card*/
 function addEntry(e) {
@@ -26,7 +100,10 @@ function addEntry(e) {
   // Create LI element
   const li = document.createElement('li')
   // Add classes to LI
-  // li.className = 'collection-item card list-group-item mt-3 d-flex justify-content-between' // for materialize
+  li.className = 'collection-item' // for materialize
+
+
+
 /*
 
   // Create Subject div
@@ -90,7 +167,7 @@ function addEntry(e) {
   </div>
 
   `
-  console.log(li)
+  // console.log(li)
 
   // const li = document.createElement(li)
   li.innerHTML = li_html
