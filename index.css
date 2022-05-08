@@ -111,6 +111,7 @@ li > * > * {
 .content {
   margin: 0 .5rem;
   background-color: aliceblue;
+  flex: 1;
 }
 .rt-col {
   padding: .6rem; 
