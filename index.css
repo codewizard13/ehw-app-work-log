@@ -111,6 +111,7 @@ li > * > * {
   min-width: 150px;
   color: white;
 }
+.left-col > div span {color: yellow}
 .content {
   margin: 0 .5rem;
   background-color: aliceblue;

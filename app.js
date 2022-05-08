@@ -148,9 +148,9 @@ function addEntry(e) {
   let li_html = `
 
   <div class="left-col">
-    <div class="date">Date: 2022-05-05</div>
-    <div class="time">Time:  7:18 AM</div>
-    <div class="tz">Time Zone: CDT</div>
+    <div class="date">Date: <span>${now_date_ISO}</span></div>
+    <div class="time">Time:  <span>${now_time_12}</span></div>
+    <div class="tz">Time Zone: <span>${now_tz}</span></div>
   </div>
   
   <div class="content">
