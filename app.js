@@ -1,5 +1,9 @@
 // app.js
 
+// DEFINE REAL CONSTANTS
+const punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
+const sep_bar = '---------------------------------' // for console.log
+
 // DEFINE UI VARS
 const topHeader = document.querySelector('h1:first-of-type')
 const form = document.getElementById('entry-form')
@@ -80,7 +84,6 @@ function getEntries() {
     // const li = document.createElement(li)
     li.innerHTML = li_html
 
-
     // APPEND LI TO UL
     resultsList.appendChild(li)
   })
@@ -93,6 +96,8 @@ function getDateTime(dt_fmt = 'US-12') {
   var date_obj = {};
   var time_obj = {};
   var cur_dt = new Date();
+
+  var unix_timestamp = Date.now()
 
   // Date
   var yr2 = cur_dt.getFullYear().toString().substring(2);
@@ -114,7 +119,8 @@ function getDateTime(dt_fmt = 'US-12') {
 
   // Date Object
   date_obj = {
-    yr2, mo2, dy2, date_mmddyy, date_ISO, dow_name, mo_long, tz_short, date_long, date_full
+    yr2, mo2, dy2, date_mmddyy, date_ISO, dow_name, mo_long,
+    tz_short, date_long, date_full, unix_timestamp
   }
 
   // Time
@@ -139,6 +145,7 @@ function getDateTime(dt_fmt = 'US-12') {
   // Add properties to out object
   out_obj.dt = cur_dt;
   out_obj['EN-12'] = {};
+  out_obj['EN-12'].unix_timestamp = unix_timestamp
   out_obj['EN-12'].date = date_obj;
   out_obj['EN-12'].time = time_obj;
 
@@ -162,54 +169,30 @@ function addEntry(e) {
   const now_date_ISO = today["EN-12"].date.date_ISO
   const now_time_12 = today["EN-12"].time.fmt_12hr_padSp
   const now_tz = today["EN-12"].date.tz_short
+  const unix_timestamp = today["EN-12"].unix_timestamp
+  console.log(unix_timestamp)
 
-  // console.log(now_date_long)
-  // console.log(now_dow)
-  // console.log(now_date_ISO)
-  console.log(now_time_12)
-  // console.log(now_tz)
+  // BUILD ENTRY ID:
+  
+  // Get (up to) first 16 digits of subject
+  let sub_part = (inputSubject.value).slice(0, 16)
+  console.log(sub_part)
 
+  // Remove all spaces
+  sub_part = sub_part.replace(/\s+/g, '')
+  console.log(sub_part)
 
+  // Remove all punctuation
+  const regex = new RegExp('[' + punctuation + ']', 'g');
+  sub_part = sub_part.replace(regex, '')
 
-  /*
-  
-    // Create Subject div
-    const subj_div = document.createElement('div')
-    // Add Classes
-    subj_div.className = ''
-    // Create subj text node and append
-    subj_div.appendChild(document.createTextNode(inputSubject.value))
-  
-    // Create Delete link
-    const delLink = document.createElement('a')
-    // Add class
-    delLink.className = 'delete-item secondary-content' // materialize classes
-    // Add icon HTML
-    delLink.innerHTML = '<i class="fa fa-remove"></i>' // requires FontAwesome
-  
-    // Entry Card template literal
-    let test_card_html = `
-    <div>
-      <h5 class="card-title text-left">${inputSubject.value}</h5>
-      <p class="card-text text-left">${inputDetails.value}</a>
-    </div>
-    <a class="delete-item secondary-content"><i class="fa fa-remove" aria-hidden="true"></i></a>
-    `
-  
-  
-    const testCrd = document.createElement('div')
-    testCrd.className = 'card-body'
-    testCrd.innerHTML = test_card_html
-    console.log(testCrd)
-    // testCrd.appendChild(delLink)
-  
-  
-    // Append CHILD ELEMENTS to LI
-    // li.appendChild(subj_div)
-    li.appendChild(testCrd)
-  
-    // li.appendChild(delLink)
-    */
+  // Lowercase sub_part
+  sub_part = sub_part.toLowerCase()
+  console.log(sub_part)
+
+  const entry_id = `${unix_timestamp}_${sub_part}`
+  console.log('entry_id: ' + entry_id)
+
 
   // Create LI with Template Literal
   let li_html = `
@@ -228,10 +211,7 @@ function addEntry(e) {
   <div class="rt-col">
     <a class="delete-item secondary-content"><i class="fa fa-remove" aria-hidden="true"></i></a>
   </div>
-
   `
-  // console.log(li)
-
   // const li = document.createElement(li)
   li.innerHTML = li_html
 
@@ -240,6 +220,8 @@ function addEntry(e) {
 
   // Add event info to object
   const entryObj = {}
+  // Add ID
+  entryObj.id = entry_id
   entryObj.subject = inputSubject.value
   entryObj.deets = inputDetails.value
   entryObj.dt = {}
